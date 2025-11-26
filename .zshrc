@@ -118,9 +118,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cat='bat'
 alias catp='bat -p'
-#alias ls='eza --icons'
-#alias ll='eza --icons -l --git'
-#alias la='eza --icons --tree --level=2'
+alias ls='eza --icons'
+alias ll='eza --icons -l --git'
+alias la='eza --icons --tree --level=2'
 
 #Disable annoying beep errorsound
 unsetopt beep

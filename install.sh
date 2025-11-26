@@ -109,6 +109,29 @@ else
     cd ~/.fzf && git pull && ./install --all
 fi
 
+# --- 4. Eza (Better ls) ---
+# We use the official repo to ensure we get the latest version (with icons/git support)
+if ! command -v eza &> /dev/null; then
+    echo "⬇️  Installing Eza (Modern ls)..."
+    
+    # 1. Install necessary dependencies for adding repos
+    sudo apt install -y gpg
+
+    # 2. Add the GPG key
+    sudo mkdir -p /etc/apt/keyrings
+    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+
+    # 3. Add the repo to sources list
+    echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+
+    # 4. Update and Install
+    sudo apt update
+    sudo apt install -y eza
+else
+    echo "✅ Eza is already installed."
+fi
+
+
 # --- 4. Configure .zshrc ---
 echo "💾 configuring .zshrc..."
 
