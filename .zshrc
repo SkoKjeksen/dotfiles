@@ -116,15 +116,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cat='batcat'
-alias catp='batcat -p'
+alias cat='bat'
+alias catp='bat -p'
 #alias ls='eza --icons'
 #alias ll='eza --icons -l --git'
 #alias la='eza --icons --tree --level=2'
-#alias for copying to clipboard
-cb() {
- catp "$1" | clip.exe
-}
 
 #Disable annoying beep errorsound
 unsetopt beep
