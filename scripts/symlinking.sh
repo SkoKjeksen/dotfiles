@@ -9,13 +9,12 @@ REPO_DIR="$(cd "$(dirname "$(dirname "${BASH_SOURCE[0]}")")" && pwd)"
 
 echo "🔗 Starting Symlinking "
 
-  # Create symlink so 'bat' works
+# Create symlink so 'bat' works
 if command -v batcat &>/dev/null; then
   mkdir -p ~/.local/bin
   ln -sf $(which batcat) ~/.local/bin/bat
   echo "🔗 Linked batcat -> bat"
 fi
-
 
 # Create fd symlink if it exists
 if command -v fdfind &>/dev/null; then
@@ -86,4 +85,16 @@ if [ -d "$REPO_DIR/tmux" ]; then
   fi
 else
   echo "⚠️  WARNING: tmux config directory not found in repo!"
+fi
+
+# Clangd config
+if [ -d "$REPO_DIR/clangd" ]; then
+  if [ ! -e "$HOME/.config/clangd" ]; then
+    echo " - Symlinking Clangd config..."
+    ln -s "$REPO_DIR/clangd" "$HOME/.config/clangd"
+  else
+    echo " - Clangd config already exists"
+  fi
+else
+  echo "⚠️  WARNING: Clangd config directory not found in repo!"
 fi

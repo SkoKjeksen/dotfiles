@@ -122,3 +122,11 @@ if ! command -v lazygit &>/dev/null; then
   rm lazygit lazygit.tar.gz
   echo "✅ LazyGit installed successfully"
 fi
+
+# PlatformIO (pipx)
+if ! command -v pio &>/dev/null; then
+  sudo apt install -y pipx
+  pipx ensurepath
+  pipx install PlatformIO
+  sudo ensurepath
+fi
