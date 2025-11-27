@@ -3,7 +3,7 @@
 OMZ_DIR="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$OMZ_DIR/custom}"
 FONT_DIR="$HOME/.local/share/fonts"
-REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="$(cd "$(dirname "$(dirname "${BASH_SOURCE[0]}")")" && pwd)"
 
 # ---Program installer! ---
 
@@ -92,6 +92,12 @@ if ! command -v clangd &>/dev/null; then
   sudo apt install -y clang-tools
 fi
 
+# install luarocks (for Neovim plugins)
+if ! command -v luarocks &>/dev/null; then
+  echo "⬇️  Installing luarocks..."
+  sudo apt install -y luarocks
+fi
+
 # install tmux
 if ! command -v tmux &>/dev/null; then
   echo "⬇️  Installing tmux..."
@@ -104,4 +110,15 @@ if ! command -v nvim &>/dev/null; then
   sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
   sudo chmod a+x nvim-linux-x86_64.appimage
   sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
+fi
+
+# LazyGit (pre-built binary)
+if ! command -v lazygit &>/dev/null; then
+  echo "⬇️  Installing LazyGit..."
+  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+  tar xf lazygit.tar.gz lazygit
+  sudo install lazygit /usr/local/bin
+  rm lazygit lazygit.tar.gz
+  echo "✅ LazyGit installed successfully"
 fi
