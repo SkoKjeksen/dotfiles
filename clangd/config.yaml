@@ -4,3 +4,6 @@ CompileFlags:
     - -fno-fat-lto-objects
     - -mlongcalls
     - -fstrict-volatile-bitfields
+
+Diagnostics:
+  Suppress: [unused-includes] # Ignore unused-includes

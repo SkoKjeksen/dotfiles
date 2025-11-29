@@ -1,0 +1,6 @@
+BasedOnStyle : LLVM
+IndentWidth: 4
+TabWidth: 4
+BreakBeforeBraces: K&R
+AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: true
