@@ -1,6 +1,11 @@
 BasedOnStyle : LLVM
 IndentWidth: 4
 TabWidth: 4
-BreakBeforeBraces: K&R
+BreakBeforeBraces: Stroustrup
 AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: true
+
+
+Language: Cpp
+DerivePointerAlignment: false
+PointerAlignment: Left
