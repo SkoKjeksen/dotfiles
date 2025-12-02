@@ -2,6 +2,8 @@ BasedOnStyle : LLVM
 IndentWidth: 4
 TabWidth: 4
 BreakBeforeBraces: Stroustrup
+AllowShortBlocksOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false
 AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: true
 

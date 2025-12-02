@@ -4,3 +4,4 @@
 
 -- Save the current buffer before switching to a tmux pane
 vim.g.tmux_navigator_save_on_switch = 2
+vim.g.autoformat = false

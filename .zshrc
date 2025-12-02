@@ -131,3 +131,6 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Created by `pipx` on 2025-11-28 06:28:24
+export PATH="$PATH:/home/emil/.local/bin"
