@@ -21,3 +21,6 @@ vim.keymap.set("v", "<Left>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("v", "<Right>", "<Nop>", { noremap = true, silent = true })
 
 vim.keymap.set("i", "jj", "<Esc>")
+
+-- Disable line joining (ANNOYING)
+vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true}) 
