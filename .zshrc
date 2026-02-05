@@ -120,9 +120,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # alias cat='bat'
 # alias catp='bat -p'
 alias fd="fdfind"
-alias ls='eza --icons'
-alias ll='eza --icons -l --git'
-alias la='eza --icons --tree --level=2'
+# alias ls='eza --icons'
+# alias ll='eza --icons -l --git'
+# alias la='eza --icons --tree --level=2'
 
 #Disable annoying beep errorsound
 unsetopt beep
@@ -134,3 +134,5 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 # Created by `pipx` on 2025-11-28 06:28:24
 export PATH="$PATH:/home/emil/.local/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

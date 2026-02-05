@@ -13,6 +13,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   sudo apt update
   # build-essential & unzip are required for Neovim/LazyVim functionality
   sudo apt install -y git curl zsh build-essential unzip
+  sudo apt install -y cmake
+  sudo apt install -y fuse
 fi
 
 # --- 2. Install Oh My Zsh ---
