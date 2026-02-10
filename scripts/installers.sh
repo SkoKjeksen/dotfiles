@@ -122,8 +122,16 @@ fi
 
 if ! command -v npm &>/dev/null; then
   echo "⬇️  Downloading node.js"
-  sudo apt install npm
-  echo "✅ node.js installed successfully"
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash 
+  
+  export NVM_DIR="$HOME/.nvm"                                                                                                                                                                  ¯é▓ Ô£ö Ôò▒ 9s ´ëÆ Ôò▒ 15:28:08 ´Çù ¯é╝
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+  nvm install node 
+  echo "✅ Node.js installed successfully"
+
+
 # LazyGit (pre-built binary)
 if ! command -v lazygit &>/dev/null; then
   echo "⬇️  Installing LazyGit..."
