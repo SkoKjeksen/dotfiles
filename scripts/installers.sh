@@ -106,6 +106,12 @@ if ! command -v tmux &>/dev/null; then
   sudo apt install -y tmux
 fi
 
+# install tmux tpm
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
+
+
 # install Neovim & LazyVim ---
 if ! command -v nvim &>/dev/null; then
   echo "⬇️  Downloading Neovim (Latest)..."
@@ -114,6 +120,10 @@ if ! command -v nvim &>/dev/null; then
   sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
 fi
 
+if ! command -v npm &>/dev/null; then
+  echo "⬇️  Downloading node.js"
+  sudo apt install npm
+  echo "✅ node.js installed successfully"
 # LazyGit (pre-built binary)
 if ! command -v lazygit &>/dev/null; then
   echo "⬇️  Installing LazyGit..."

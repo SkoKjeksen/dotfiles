@@ -19,6 +19,7 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
+    { "nvim-treesitter/nvim-treesitter-context" },
     { import = "plugins" },
   },
   defaults = {
