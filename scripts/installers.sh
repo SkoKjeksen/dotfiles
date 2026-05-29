@@ -8,7 +8,7 @@ REPO_DIR="$(cd "$(dirname "$(dirname "${BASH_SOURCE[0]}")")" && pwd)"
 # ---Program installer! ---
 
 # --- 1. System Dependencies (Debian/Ubuntu) ---
-echo "🛠️  Checking system dependencies..."
+echo "Checking system dependencies..."
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   sudo apt update
   # build-essential & unzip are required for Neovim/LazyVim functionality
@@ -21,21 +21,21 @@ fi
 # We install this FIRST so it creates the folder structure.
 # We will overwrite its default .zshrc later with yours.
 if [ -d "$OMZ_DIR" ] && [ ! -f "$OMZ_DIR/oh-my-zsh.sh" ]; then
-  echo "⚠️  Corrupt Oh My Zsh found. Reinstalling..."
+  echo "Corrupt Oh My Zsh found. Reinstalling..."
   rm -rf "$OMZ_DIR"
 fi
 
 if [ ! -d "$OMZ_DIR" ]; then
-  echo "📦 Installing Oh My Zsh..."
+  echo "Installing Oh My Zsh..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 else
-  echo "✅ Oh My Zsh is already installed."
+  echo "Oh My Zsh is already installed."
 fi
 
-echo "🔌 Installing Zsh Plugins..."
+echo "Installing Zsh Plugins..."
 # --- 3. Install Themes & Plugins ---
 if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
-  echo "🎨 Installing Powerlevel10k..."
+  echo "Installing Powerlevel10k..."
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
 fi
 
@@ -47,16 +47,16 @@ fi
 # Bat (with batcat -> bat fix)
 if ! command -v bat &>/dev/null; then
   if command -v batcat &>/dev/null; then
-    echo "✅ Bat is installed (as batcat)."
+    echo "Bat is installed (as batcat)."
   else
-    echo "⬇️  Installing bat..."
+    echo "Installing bat..."
     sudo apt install -y bat
   fi
 fi
 
 # fd-find (Needed for LazyVim)
 if ! command -v fd &>/dev/null && ! command -v fdfind &>/dev/null; then
-  echo "⬇️  Installing fd-find..."
+  echo "⬇Installing fd-find..."
   sudo apt install -y fd-find
 fi
 
@@ -65,27 +65,27 @@ if dpkg -s fzf >/dev/null 2>&1; then
   sudo apt remove -y fzf # Remove old apt version
 fi
 if [ ! -d "$HOME/.fzf" ]; then
-  echo "⬇️  Cloning FZF..."
+  echo "⬇Cloning FZF..."
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install --all
 else
-  echo "✅ FZF is ready."
+  echo "FZF is ready."
 fi
 
 # Ripgrep
 if ! command -v rg &>/dev/null; then
-  echo "⬇️  Installing Ripgrep..."
+  echo "Installing Ripgrep..."
   sudo apt install -y ripgrep
 fi
 
 # Eza (Modern ls)
 if ! command -v eza &>/dev/null; then
-  echo "⬇️  Installing Eza..."
+  echo "Installing Eza..."
   sudo apt install -y gpg
   sudo mkdir -p /etc/apt/keyrings
   wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
   echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
-  sudo apt update && sudo apt install -y eza
+  sudo apt install -y eza
 fi
 
 # install clangd
@@ -96,13 +96,13 @@ fi
 
 # install luarocks (for Neovim plugins)
 if ! command -v luarocks &>/dev/null; then
-  echo "⬇️  Installing luarocks..."
+  echo "Installing luarocks..."
   sudo apt install -y luarocks
 fi
 
 # install tmux
 if ! command -v tmux &>/dev/null; then
-  echo "⬇️  Installing tmux..."
+  echo "️Installing tmux..."
   sudo apt install -y tmux
 fi
 
@@ -114,33 +114,33 @@ fi
 
 # install Neovim & LazyVim ---
 if ! command -v nvim &>/dev/null; then
-  echo "⬇️  Downloading Neovim (Latest)..."
+  echo "Downloading Neovim (Latest)..."
   sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
   sudo chmod a+x nvim-linux-x86_64.appimage
   sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
 fi
 
 if ! command -v npm &>/dev/null; then
-  echo "⬇️  Downloading node.js"
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash 
-  
+  echo "Downloading node.js"
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
   export NVM_DIR="$HOME/.nvm"                                                                                                                                                                  ¯é▓ Ô£ö Ôò▒ 9s ´ëÆ Ôò▒ 15:28:08 ´Çù ¯é╝
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-  nvm install node 
-  echo "✅ Node.js installed successfully"
+  nvm install node
+  echo "Node.js installed successfully"
 
 
 # LazyGit (pre-built binary)
 if ! command -v lazygit &>/dev/null; then
-  echo "⬇️  Installing LazyGit..."
+  echo "Installing LazyGit..."
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
   tar xf lazygit.tar.gz lazygit
   sudo install lazygit /usr/local/bin
   rm lazygit lazygit.tar.gz
-  echo "✅ LazyGit installed successfully"
+  echo "LazyGit installed successfully"
 fi
 
 # PlatformIO (pipx)

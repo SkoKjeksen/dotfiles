@@ -7,23 +7,23 @@ ZSH_CUSTOM="${ZSH_CUSTOM:-$OMZ_DIR/custom}"
 FONT_DIR="$HOME/.local/share/fonts"
 REPO_DIR="$(cd "$(dirname "$(dirname "${BASH_SOURCE[0]}")")" && pwd)"
 
-echo "🔗 Starting Symlinking "
+echo "Starting Symlinking "
 
 # Create symlink so 'bat' works
 if command -v batcat &>/dev/null; then
     mkdir -p ~/.local/bin
     ln -sf $(which batcat) ~/.local/bin/bat
-    echo "🔗 Linked batcat -> bat"
+    echo "Linked batcat -> bat"
 fi
 
 # Create fd symlink if it exists
 if command -v fdfind &>/dev/null; then
     mkdir -p ~/.local/bin
     ln -sf $(which fdfind) ~/.local/bin/fd
-    echo "🔗 Linked fdfind -> fd"
+    echo "Linked fdfind -> fd"
 fi
 
-echo "💾 Applying Dotfiles..."
+echo "Applying Dotfiles..."
 # Symlink .zshrc from Repo
 # Backup existing .zshrc
 if [ -f "$HOME/.zshrc" ]; then
@@ -34,7 +34,7 @@ if [ -f "$REPO_DIR/.zshrc" ]; then
     echo "   - Symlinking .zshrc from repo..."
     ln -s "$REPO_DIR/.zshrc" "$HOME/"
 else
-    echo "⚠️  WARNING: .zshrc not found in script directory!"
+    echo "WARNING: .zshrc not found in script directory!"
 fi
 
 # Symlink .p10k.zsh from Repo
@@ -63,7 +63,7 @@ if [ -d "$REPO_DIR/nvim" ]; then
         echo " - nvim config already exists"
     fi
 else
-    echo "⚠️  WARNING: nvim config directory not found in repo!"
+    echo " WARNING: nvim config directory not found in repo!"
 fi
 
 # Tmux config symlink
@@ -84,7 +84,7 @@ if [ -d "$REPO_DIR/tmux" ]; then
         echo "   - tmux config already exists"
     fi
 else
-    echo "⚠️  WARNING: tmux config directory not found in repo!"
+    echo "WARNING: tmux config directory not found in repo!"
 fi
 
 # Clangd config
@@ -103,5 +103,5 @@ if [ -d "$REPO_DIR/clangd" ]; then
         echo " - Clang format already exists"
     fi
 else
-    echo "⚠️  WARNING: Clangd config directory not found in repo!"
+    echo "WARNING: Clangd config directory not found in repo!"
 fi
