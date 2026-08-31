@@ -23,4 +23,11 @@ vim.keymap.set("v", "<Right>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("i", "jj", "<Esc>")
 
 -- Disable line joining (ANNOYING)
-vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true}) 
+vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true})
+
+vim.keymap.set('n', '<leader>gw', function()
+  require('telescope.builtin').live_grep({
+  word_match = "-w",
+    default_text = vim.fn.expand("<cword>")
+  })
+end, { desc = "Live grep word under cursor "})
