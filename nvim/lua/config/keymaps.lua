@@ -34,7 +34,7 @@ vim.keymap.set("n", "<leader>fb", function()
     previewer = false,
   })
 end, { desc = "File Browser"})
-vim.keymap.set('n', '<leader>gw', function()
+vim.keymap.set('n', '<leader>fw', function()
   require('telescope.builtin').live_grep({
   word_match = "-w",
     default_text = vim.fn.expand("<cword>")
