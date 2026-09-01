@@ -20,6 +20,8 @@ return {
       "nvim-telescope/telescope.nvim",
       tag= "0.1.4",
       dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "nvim-telescope/telescope-file-browser.nvim" },
+      tag= "v0.2.2",
+      dependencies = { "nvim-lua/plenary.nvim" },
       config = function()
         local telescope = require("telescope")
         telescope.setup({

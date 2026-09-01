@@ -117,13 +117,14 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias cat='bat'
+alias cat='bat'
 # alias catp='bat -p'
 alias fd="fdfind"
-# alias ls='eza --icons'
-# alias ll='eza --icons -l --git'
-# alias la='eza --icons --tree --level=2'
+alias ls='eza --icons'
+alias ll='eza --icons -l --git --header'
+alias la='eza --icons --tree --level=2'
 
+export CDPATH=".:.."
 #Disable annoying beep errorsound
 unsetopt beep
 ZSH_AUTOSUGGEST_USE_ASYNC=1
