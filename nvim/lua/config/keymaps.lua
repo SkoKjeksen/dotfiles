@@ -23,4 +23,14 @@ vim.keymap.set("v", "<Right>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("i", "jj", "<Esc>")
 
 -- Disable line joining (ANNOYING)
-vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true}) 
+vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true})
+
+vim.keymap.set("n", "<leader>fb", function()
+  require("telescope").extensions.file_browser.file_browser({
+    path = vim.fn.expand("%:p:h"),
+    cwd = vim.fn.expand("%:p:h"),
+    hidden = true,
+    grouped = true,
+    previewer = false,
+  })
+end, { desc = "File Browser"})
