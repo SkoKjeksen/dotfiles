@@ -6,4 +6,4 @@ CompileFlags:
     - -fstrict-volatile-bitfields
 
 Diagnostics:
-  Suppress: [unused-includes] # Ignore unused-includes
+  # Suppress: [unused-includes] # Ignore unused-includes
