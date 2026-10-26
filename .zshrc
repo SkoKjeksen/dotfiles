@@ -120,9 +120,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 alias cat='bat'
 # alias catp='bat -p'
 alias fd="fdfind"
-alias ls='eza --icons'
-alias ll='eza --icons -l --git --header'
-alias la='eza --icons --tree --level=2'
+alias ls='eza --icons=auto'
+alias ll='eza --icons=auto -l --git --header'
+alias la='eza --icons=auto --tree --level=2'
 
 export CDPATH=".:.."
 #Disable annoying beep errorsound
