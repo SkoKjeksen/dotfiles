@@ -124,6 +124,12 @@ alias ls='eza --icons=auto'
 alias ll='eza --icons=auto -l --git --header'
 alias la='eza --icons=auto --tree --level=2'
 
+alias sapps='cd ~/zephyrproject/sperre_apps'
+alias jlink='JLinkExe -device STM32F427VG -if SWD -speed 4000 -autoconnect 1'
+alias wbuild='west build -p always -b controlcard_f427 .'
+alias zenv='source ~/zephyrproject/.venv/bin/activate'
+alias zapp='cd ~/zephyrproject/sperre_apps && source ~/zephyrproject/.venv/bin/activate'
+
 export CDPATH=".:.."
 #Disable annoying beep errorsound
 unsetopt beep
