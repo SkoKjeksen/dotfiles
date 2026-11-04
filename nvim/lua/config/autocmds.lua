@@ -6,3 +6,15 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"c", "cpp", "h", "hpp"},
+  callback = function()
+    vim.opt_local.indentexpr = ""
+    vim.opt_local.cindent = true
+    vim.opt_local.cinoptions = ""
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.expandtab = false
+  end,
+
+})
