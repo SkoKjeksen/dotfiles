@@ -5,7 +5,7 @@ config.enable_wayland = false
 config.color_scheme = 'Gruvbox dark, medium (base16)'
 config.initial_cols = 220
 config.initial_rows = 50
-config.font_size = 14
+config.font_size = 16
 config.window_decorations = "NONE"
 
 config.window_background_opacity = 0.95
