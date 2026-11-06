@@ -24,25 +24,31 @@ if command -v fdfind &>/dev/null; then
 fi
 
 echo "Applying Dotfiles..."
-# Symlink .zshrc from Repo
-# Backup existing .zshrc
-if [ -f "$HOME/.zshrc" ]; then
-    echo "   - Backing up existing .zshrc..."
-    mv "$HOME/.zshrc" "$HOME/.zshrc.backup.$(date +%s)"
-fi
-if [ -f "$REPO_DIR/.zshrc" ]; then
-    echo "   - Symlinking .zshrc from repo..."
-    ln -s "$REPO_DIR/.zshrc" "$HOME/"
-else
-    echo "WARNING: .zshrc not found in script directory!"
-fi
+link_dotfile() {
+    local source="$1"
+    local target="$2"
 
-# Symlink .p10k.zsh from Repo
-if [ -f "$REPO_DIR/.p10k.zsh" ]; then
-    echo "   - Symlinking .p10k.zsh from repo..."
-    [ -f "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.backup.$(date +%s)"
-    ln -s "$REPO_DIR/.p10k.zsh" "$HOME/"
-fi
+    if [ ! -f "$source" ]; then
+        echo "WARNING: $source not found!"
+        return 1
+    fi
+
+    if [ -e "$target" ] || [ -L "$target" ]; then
+        if [ "$target" -ef "$source" ]; then
+            echo " - $target already links to $source"
+            return 0
+        fi
+        echo " - Backing up $target..."
+        mv "$target" "$target.backup.$(date +%s)"
+    fi
+
+    ln -s "$source" "$target"
+    echo " - Linked $target to $source"
+}
+
+link_dotfile "$REPO_DIR/zsh/.zshrc" "$HOME/.zshrc"
+link_dotfile "$REPO_DIR/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
+link_dotfile "$REPO_DIR/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
 
 # Symlink Nvim config
 mkdir -p "$HOME/.config"
