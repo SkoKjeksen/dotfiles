@@ -34,6 +34,7 @@
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
+    virtualenv	 	    # python virtual env
     # prompt_char           # prompt symbol
   )
 
