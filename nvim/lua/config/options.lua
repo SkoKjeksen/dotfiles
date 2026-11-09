@@ -3,5 +3,13 @@
 -- Add any additional options here
 
 -- Save the current buffer before switching to a tmux pane
+
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+
+vim.opt.shiftwidth = 4;
+
+
 vim.g.tmux_navigator_save_on_switch = 2
 vim.g.autoformat = false

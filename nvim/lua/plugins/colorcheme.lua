@@ -1,17 +1,21 @@
+local function enable_transparency()
+    vim.api.nvim_set_hl(0, "Normal", {bg = "none" })
+end
 return {
     {
-        "luisiacc/gruvbox-baby",
-        lazy = false,
-        priority = 1000,
+        "ellisonleao/gruvbox.nvim",
         config = function()
-            -- Enable telescope theme integration
-            vim.g.gruvbox_baby_telescope_theme = 1
-
-            -- Optional: Enable transparent background for an ultra-crisp feel
-            -- if your terminal handles the background color
-            -- vim.g.gruvbox_baby_transparent_mode = 1
-
-            vim.cmd.colorscheme("gruvbox-baby")
+            vim.cmd.colorscheme "gruvbox"
+	    enable_transparency()
         end,
+    },
+    {
+	"nvim-lualine/lualine.nvim",
+	dependencies = {
+	    "nvim-tree/nvim-web-devicons",
+	},
+	opts = {
+	    theme = "gruvbox",
+	}
     },
 }

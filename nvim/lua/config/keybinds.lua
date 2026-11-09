@@ -1,7 +1,7 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-
+vim.g.mapleader = " "
 -- Disable arrow keys in normal mode (force hjkl)
 vim.keymap.set("n", "<Up>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<Down>", "<Nop>", { noremap = true, silent = true })
@@ -25,18 +25,6 @@ vim.keymap.set("i", "jj", "<Esc>")
 -- Disable line joining (ANNOYING)
 vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true})
 
-vim.keymap.set("n", "<leader>fb", function()
-  require("telescope").extensions.file_browser.file_browser({
-    path = vim.fn.expand("%:p:h"),
-    cwd = vim.fn.expand("%:p:h"),
-    hidden = true,
-    grouped = true,
-    previewer = false,
-  })
-end, { desc = "File Browser"})
-vim.keymap.set('n', '<leader>fw', function()
-  require('telescope.builtin').live_grep({
-  word_match = "-w",
-    default_text = vim.fn.expand("<cword>")
-  })
-end, { desc = "Live grep word under cursor "})
+vim.keymap.set("n", "<leader>cq", "<cmd>cclose<cr>", { silent = true, desc = "Close quickfix list" })
+
+-- vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)

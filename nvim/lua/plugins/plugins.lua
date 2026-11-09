@@ -16,30 +16,4 @@ return {
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
     },
-    { -- TELESCOPE ---
-      "nvim-telescope/telescope.nvim",
-      dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "nvim-telescope/telescope-file-browser.nvim" },
-      tag= "v0.2.2",
-      config = function()
-        local telescope = require("telescope")
-        telescope.setup({
-        extensions = {
-          file_browser = {
-            hidden = true,
-            grouped = true,
-            respect_gitignore = false,
-            previewer = false,
-            initial_mode = "normal",
-          },
-        },
-      })
-      telescope.load_extension("file_browser")
-        local b = require("telescope.builtin")
-        vim.keymap.set('n', '<leader>ff', b.find_files, { desc = "Find Files"})
-        vim.keymap.set('n', '<leader>fg', b.live_grep, { desc = "Live Grep"})
-        vim.keymap.set('n', '<leader>fb', b.buffers, { desc = "Find Buffers"})
-        vim.keymap.set('n', '<leader>fh', b.help_tags, { desc = "Find Help"})
-    end
-
-  }
 }
