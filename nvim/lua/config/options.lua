@@ -11,6 +11,14 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.shiftwidth = 4;
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+	vim.hl.on_yank({
+	    higroup = "IncSearch",
+	    timeout = 200,
+    })
+    end,
+})
 
 vim.g.tmux_navigator_save_on_switch = 2
 vim.g.autoformat = false
