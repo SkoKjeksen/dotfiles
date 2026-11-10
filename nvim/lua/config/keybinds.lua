@@ -24,7 +24,3 @@ vim.keymap.set("i", "jj", "<Esc>")
 
 -- Disable line joining (ANNOYING)
 vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true})
-
-vim.keymap.set("n", "<leader>cq", "<cmd>cclose<cr>", { silent = true, desc = "Close quickfix list" })
-
--- vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
