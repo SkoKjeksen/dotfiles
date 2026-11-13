@@ -6,6 +6,7 @@ config.color_scheme = 'Gruvbox dark, medium (base16)'
 config.initial_cols = 220
 config.initial_rows = 50
 config.font_size = 16
+wezterm.font = wezterm.font("MesloLG Nerd Font")
 config.window_decorations = "NONE"
 
 config.window_background_opacity = 0.95
