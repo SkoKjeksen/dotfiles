@@ -22,3 +22,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.g.tmux_navigator_save_on_switch = 2
 vim.g.autoformat = false
+vim.diagnostic.config({ virtual_text = true })
