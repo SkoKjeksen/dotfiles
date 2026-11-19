@@ -3,7 +3,7 @@ return {
     lazy = false,
     build = ":TSUpdate",
     config = function()
-	require("nvim-treesitter").install({ "lua", "tsx", "typescript", "c", "cpp", "python", "rust" })
+	require("nvim-treesitter").install({ "lua", "tsx", "typescript", "javascript", "svelte", "html", "css", "c", "cpp", "python", "rust" })
 	vim.api.nvim_create_autocmd("FileType", {
 	    group = vim.api.nvim_create_augroup("config_treesitter", { clear = true }),
 	    callback = function(event)

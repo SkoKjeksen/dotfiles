@@ -20,6 +20,8 @@ return {
                     },
                 },
                 pyright = {},
+                ts_ls = {},
+                svelte = {},
             },
         },
         config = function(_, opts)
@@ -53,6 +55,16 @@ return {
                     map("gI", vim.lsp.buf.implementation, "Go to implementation")
                     map("gy", vim.lsp.buf.type_definition, "Go to type definition")
                     map("K", vim.lsp.buf.hover, "Hover documentation")
+                    map("<leader>cf", function()
+                        vim.lsp.buf.format({ bufnr = event.buf, async = true })
+                    end, "Format buffer")
+		    map("<leader>ca", vim.lsp.buf.code_action, "Code action")
+
+                    local client = vim.lsp.get_client_by_id(event.data.client_id)
+                    if client and client:supports_method("textDocument/completion") then
+                        vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+			vim.cmd("set completeopt+=noselect")
+                    end
                 end,
             })
 

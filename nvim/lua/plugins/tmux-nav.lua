@@ -16,4 +16,9 @@ return {
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
     },
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
+    },
 }
