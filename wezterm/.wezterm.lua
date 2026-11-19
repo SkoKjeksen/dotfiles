@@ -8,7 +8,7 @@ config.initial_rows = 50
 config.font_size = 16
 config.window_decorations = "NONE"
 
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.99
 
 config.leader = {key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
 
