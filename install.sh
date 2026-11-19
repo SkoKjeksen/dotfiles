@@ -9,9 +9,9 @@ REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Starting Dotfiles Setup..."
 
 # Install the programs
-if [ -x "./scripts/installers.sh" ]; then
+if [ -x "./scripts/arch.sh" ]; then
   echo "Running installers script..."
-  ./scripts/installers.sh
+  ./scripts/arch.sh
 else
   echo "ERROR:  Installers script not found or not executable!"
   exit 1
