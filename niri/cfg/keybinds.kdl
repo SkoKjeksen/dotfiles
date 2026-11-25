@@ -18,7 +18,7 @@ binds {
     Mod+Shift+S                         hotkey-overlay-title="Open Settings: noctalia settings" { spawn-sh "noctalia msg settings-toggle"; }
     Mod+d                     hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+ALT+L                           hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "noctalia msg session lock"; }
-    Mod+Shift+Q                         hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+Shift+E                         hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "noctalia msg panel-toggle session"; }
 
     // Please set the text editor of your choice.
     // Mod+Shift+E                               hotkey-overlay-title="Open Text Editor: Zed" { spawn "zed"; }
@@ -56,6 +56,8 @@ binds {
     Mod+Shift+U				{ move-column-to-workspace-down; }
     Mod+Shift+I				{ move-column-to-workspace-up; }
 
+
+
     Mod+Home                            { focus-column-first; }
     Mod+End                             { focus-column-last; }
     Mod+CTRL+Home                       { move-column-to-first; }
@@ -70,7 +72,8 @@ binds {
     Mod+Shift+CTRL+Right                { move-column-to-monitor-right; }
     Mod+Shift+CTRL+UP                   { move-column-to-monitor-up; }
     Mod+Shift+CTRL+Down                 { move-column-to-monitor-down; }
-    Mod+Shift+V                         { switch-focus-between-floating-and-tiling; }
+    Mod+Space                           { switch-focus-between-floating-and-tiling; }
+    Mod+Shift+Space 			{ toggle-window-floating; }
 
     Mod+P                     		{ consume-or-expel-window-left; }
     Mod+aring                    	{ consume-or-expel-window-right; }
@@ -131,13 +134,12 @@ binds {
     Mod+C                               { center-column; }
     Mod+CTRL+C                          { center-visible-columns; }
     Mod+Minus                           { set-column-width "-10%"; }
-    Mod+Equal                           { set-column-width "+10%"; }
+    Mod+Plus                           { set-column-width "+10%"; }
     Mod+Shift+Minus                     { set-window-height "-10%"; }
-    Mod+Shift+Equal                     { set-window-height "+10%"; }
+    Mod+Shift+Plus                     { set-window-height "+10%"; }
 
 
     // ─── Modes ───
-    Mod+T                               { toggle-window-floating; }
     Mod+F                               { maximize-column; }
     Mod+Shift+F                         { fullscreen-window; }
     Mod+W                               { toggle-column-tabbed-display; }
